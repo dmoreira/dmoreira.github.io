@@ -38,7 +38,7 @@
       "density": 4.0
     }
   ],
-  "start_url": "https://dmoreira.github.io/",
-  "display": "standalone",
+  "start_url": "/",
+  "display": "browser",
   "orientation": "landscape"
 }
