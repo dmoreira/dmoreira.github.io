@@ -20,14 +20,14 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /***/ "./src/app/app.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".jumbotron {\n  padding: 2rem 1rem;\n  margin-bottom: 2rem;\n  background-color: #e9ecef;\n  border-radius: 0 !important;\n  height: 100vh;\n}\n\n.app-header {\n  background-color: #aeaeae;\n}\n\n.events-row {\n  height: 120px;\n  position: fixed;\n  right: 30px;\n  bottom: 100px;\n  left: 20px;\n}\n\n.event-0 {\n  background-color: #f5f5f5;\n}\n\n.event-1 {\n  background-color: #eeeeee;\n}\n\n.event-2 {\n  background-color: #e0e0e0;\n}\n\n.event-3 {\n  background-color: #bdbdbd;\n}\n\n.event-4 {\n  background-color: #9e9e9e;\n}\n"
 
 /***/ }),
 
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<!--Add buttons to initiate auth sequence and sign out-->\n<button *ngIf=\"!isSignedIn\" (click)=\"handleAuthClick()\">Authorize</button>\n<button *ngIf=\"isSignedIn\" (click)=\"handleSignoutClick()\">Sign Out</button>\n\n<button (click)=\"fetchEvents()\">Fetch events</button>\n<i class=\"fas fa-bars\"></i>\n\n\n<ng-container *ngIf=\"isFree\">\n  <div class=\"row m-1\">\n    <div class=\"col border p-2 mr-1\">\n      <p>Free</p>\n    </div>\n  </div>\n</ng-container>\n<ng-container *ngIf=\"!isFree && nowEvent\">\n  <div class=\"row m-1\">\n    <div class=\"col border p-2 mr-1\">\n      <div>{{nowEvent.summary}}</div>\n      <div>{{nowEvent.start | date : 'dd.MM.yyyy HH:mm'}}</div>\n      <div>{{nowEvent.end | date : 'dd.MM.yyyy HH:mm'}}</div>\n    </div>\n  </div>\n</ng-container>\n\n\n<div class=\"row m-1\">\n  <ng-container *ngFor=\"let event of events\">\n    <div class=\"col border p-2 mr-1\">\n      <div>{{event.summary}}</div>\n      <div>{{event.start | date : 'dd.MM.yyyy HH:mm'}}</div>\n      <div>{{event.end | date : 'dd.MM.yyyy HH:mm'}}</div>\n    </div>\n  </ng-container>\n</div>\n"
+module.exports = "<div class=\"row m-0 app-header\" (click)=\"showMenu()\">\n  <div class=\"col mb-5\">\n  </div>\n</div>\n\n<div id=\"toggle\">\n  <span class=\"dropdown-item-text\">\n    <i class=\"fas fa-cog\"></i>\n    Settings\n  </span>\n\n  <div class=\"dropdown-divider\"></div>\n\n  <a class=\"dropdown-item\" href=\"#\" *ngIf=\"!isSignedIn\" (click)=\"handleAuthClick()\">\n    <i class=\"fab fa-google\"></i>\n    Authorize\n  </a>\n  <a class=\"dropdown-item\" href=\"#\" *ngIf=\"isSignedIn\" (click)=\"handleSignoutClick()\">\n    <i class=\"fas fa-sign-out-alt\"></i>\n    Sign Out\n  </a>\n  <a class=\"dropdown-item\" href=\"#\" *ngIf=\"isSignedIn\" (click)=\"fetchEvents()\">\n    <i class=\"fas fa-cloud-download-alt\"></i>\n    Fetch events\n  </a>\n\n  <div class=\"dropdown-divider\"></div>\n\n  <span class=\"dropdown-item-text\">\n    <i class=\"fas fa-th-large\"></i>\n    Rooms\n  </span>\n\n  <a class=\"dropdown-item\" (click)=\"chooseRoom(JAZZ)\">\n    <div class=\"form-check\">\n      <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios\" value=\"option1\" checked>\n      <label class=\"form-check-label\">\n        Jazz\n      </label>\n    </div>\n  </a>\n  <a class=\"dropdown-item\" (click)=\"chooseRoom(SOUL)\">\n    <div class=\"form-check\">\n      <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios\" value=\"option1\">\n      <label class=\"form-check-label\">\n        Soul\n      </label>\n    </div>\n  </a>\n  <a class=\"dropdown-item\" (click)=\"chooseRoom(ROCK)\">\n    <div class=\"form-check\">\n      <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios\" value=\"option1\">\n      <label class=\"form-check-label\">\n        Rock\n      </label>\n    </div>\n  </a>\n  <a class=\"dropdown-item\" (click)=\"chooseRoom(BLUES)\">\n    <div class=\"form-check\">\n      <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios\" value=\"option1\">\n      <label class=\"form-check-label\">\n        Blues\n      </label>\n    </div>\n  </a>\n  <a class=\"dropdown-item\" (click)=\"chooseRoom(JOIKU)\">\n    <div class=\"form-check\">\n      <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios\" value=\"option1\">\n      <label class=\"form-check-label\">\n        Joiku\n      </label>\n    </div>\n  </a>\n\n  <div class=\"dropdown-divider\"></div>\n\n  <a class=\"dropdown-item\" href=\"#\" (click)=\"showMenu()\">\n    Close\n  </a>\n\n</div>\n\n<div class=\"row\" *ngIf=\"events.length > 0\">\n  <div class=\"col\">\n\n    <ng-container *ngIf=\"isFree\">\n      <div class=\"jumbotron\">\n        <h1 class=\"display-1 mt-5\">{{roomName}}</h1>\n        <h1 class=\"display-4\">Free</h1>\n        <div class=\"row events-row\">\n          <ng-container *ngFor=\"let event of events; let i = index\">\n            <div class=\"col p-2 mr-1 event-{{i}}\">\n              <div>{{event.summary}}</div>\n              <div>{{event.start | date : 'dd.MM.yyyy HH:mm'}}</div>\n              <div>{{event.end | date : 'dd.MM.yyyy HH:mm'}}</div>\n            </div>\n          </ng-container>\n        </div>\n      </div>\n    </ng-container>\n\n    <ng-container *ngIf=\"!isFree && nowEvent\">\n      <div class=\"jumbotron\">\n        <h1 class=\"display-1 mt-5\">{{roomName}}</h1>\n        <h1 class=\"display-4\">{{nowEvent.summary}}</h1>\n        <p class=\"lead\">\n          {{nowEvent.start | date : 'HH:mm'}} - {{nowEvent.end | date : 'HH:mm'}}\n          <br />\n          {{nowEvent.creator.displayName}}\n        </p>\n        <div class=\"row events-row\">\n          <ng-container *ngFor=\"let event of events; let i = index\">\n            <div class=\"col p-2 mr-1 event-{{i}}\">\n              <div>{{event.summary}}</div>\n              <div>{{event.start | date : 'dd.MM.yyyy HH:mm'}}</div>\n              <div>{{event.end | date : 'dd.MM.yyyy HH:mm'}}</div>\n            </div>\n          </ng-container>\n        </div>\n      </div>\n    </ng-container>\n\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -51,8 +51,8 @@ var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.CLIENT_ID = '205276725794-i5d0qsftbi64u3du6el9l1lt6gmdjc39.apps.googleusercontent.com';
         this.API_KEY = 'AIzaSyAKkhBrwtVPt6n1m4SIABXaXZ0zetUtTxQ';
-        this.DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
-        this.SCOPES = "https://www.googleapis.com/auth/calendar";
+        this.DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'];
+        this.SCOPES = 'https://www.googleapis.com/auth/calendar';
         this.events = [];
         this.isSignedIn = false;
         this.isFree = false;
@@ -61,6 +61,7 @@ var AppComponent = /** @class */ (function () {
         this.JAZZ = 'visma.com_f62kg5sc74kmcfcs6kt61939ro@group.calendar.google.com';
         this.ROCK = 'visma.com_9bql35s40br3mdlngd8glo0sek@group.calendar.google.com';
         this.JOIKU = 'visma.com_2vdf38fprd1c94m8j1q0bm4prg@group.calendar.google.com';
+        this.chosenRoom = this.JAZZ;
         this.initClient = this.initClient.bind(this);
     }
     AppComponent.prototype.initClient = function () {
@@ -77,7 +78,7 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.listUpcomingEvents = function () {
         var self = this;
         gapi.client.calendar.events.list({
-            'calendarId': self.JOIKU,
+            'calendarId': self.chosenRoom,
             'timeMin': (new Date()).toISOString(),
             'showDeleted': false,
             'singleEvents': true,
@@ -85,6 +86,8 @@ var AppComponent = /** @class */ (function () {
             'orderBy': 'startTime'
         }).then(function (response) {
             self.events = response.result.items;
+            var n = response.result.summary.split('-');
+            self.roomName = n.splice(n.lastIndexOf(n), 1);
             if (self.events.length > 0) {
                 for (var i = 0; i < self.events.length; i++) {
                     var event_1 = self.events[i];
@@ -126,6 +129,7 @@ var AppComponent = /** @class */ (function () {
         self.isSignedIn = false;
         self.events = [];
         gapi.auth2.getAuthInstance().signOut();
+        self.showMenu();
     };
     AppComponent.prototype.checkIsNow = function (event) {
         var now = (new Date());
@@ -156,6 +160,13 @@ var AppComponent = /** @class */ (function () {
                 this.isFree = true;
             }
         }
+    };
+    AppComponent.prototype.showMenu = function () {
+        $('#toggle').toggle('slide');
+    };
+    AppComponent.prototype.chooseRoom = function (room) {
+        this.chosenRoom = room;
+        this.listUpcomingEvents();
     };
     AppComponent.prototype.ngOnInit = function () {
         gapi.load('client:auth2', this.initClient);
