@@ -20,14 +20,14 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /***/ "./src/app/app.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "#toggle {\n  width: 350px;\n  background: #ccc;\n  display: none;\n  z-index: 100;\n  float: left;\n  position: fixed;\n}\n\n.jumbotron {\n  padding: 2rem 1rem;\n  margin-bottom: 2rem;\n  background-color: #e9ecef;\n  border-radius: 0 !important;\n  height: 100vh;\n}\n\n.events-row {\n  position: fixed;\n  right: 30px;\n  bottom: 50px;\n  left: 20px;\n}\n\n.app-header {\n  width: 100%;\n  background-color: #555555;\n  color: #fafafa;\n  cursor: pointer;\n}\n\n.app-header-BLUES {\n  background-color: #00897b;\n}\n\n.event-0-BLUES {\n  background-color: #e0f2f1;\n}\n\n.event-1-BLUES {\n  background-color: #b2dfdb;\n}\n\n.event-2-BLUES {\n  background-color: #80cbc4;\n}\n\n.event-3-BLUES {\n  background-color: #4db6ac;\n}\n\n.event-4-BLUES {\n  background-color: #26a69a;\n}\n\n.app-header-SOUL {\n  background-color: #00acc1;\n}\n\n.event-0-SOUL {\n  background-color: #e0f7fa;\n}\n\n.event-1-SOUL {\n  background-color: #b2ebf2;\n}\n\n.event-2-SOUL {\n  background-color: #80deea;\n}\n\n.event-3-SOUL {\n  background-color: #4dd0e1;\n}\n\n.event-4-SOUL {\n  background-color: #26c6da;\n}\n\n.app-header-JAZZ {\n  background-color: #8e24aa;\n}\n\n.event-0-JAZZ {\n  background-color: #f3e5f5;\n}\n\n.event-1-JAZZ {\n  background-color: #e1bee7;\n}\n\n.event-2-JAZZ {\n  background-color: #ce93d8;\n}\n\n.event-3-JAZZ {\n  background-color: #ba68c8;\n}\n\n.event-4-JAZZ {\n  background-color: #ab47bc;\n}\n\n.app-header-ROCK {\n  background-color: #494949;\n}\n\n.event-0-ROCK {\n  background-color: #fafafa;\n}\n\n.event-1-ROCK {\n  background-color: #f5f5f5;\n}\n\n.event-2-ROCK {\n  background-color: #eeeeee;\n}\n\n.event-3-ROCK {\n  background-color: #e0e0e0;\n}\n\n.event-4-ROCK {\n  background-color: #bdbdbd;\n}\n\n.app-header-JOIKU {\n  background-color: #039be5;\n}\n\n.event-0-JOIKU {\n  background-color: #e1f5fe;\n}\n\n.event-1-JOIKU {\n  background-color: #b3e5fc;\n}\n\n.event-2-JOIKU {\n  background-color: #81d4fa;\n}\n\n.event-3-JOIKU {\n  background-color: #4fc3f7;\n}\n\n.event-4-JOIKU {\n  background-color: #29b6f6;\n}\n"
+module.exports = "#toggle {\n  width: 350px;\n  height: 100%;\n  background: #ffffff;\n  display: none;\n  z-index: 100;\n  float: left;\n  position: fixed;\n}\n\n#toggle-booking {\n  width: 350px;\n  height: 100%;\n  background: #ffffff;\n  display: none;\n  z-index: 100;\n  float: left;\n  position: fixed;\n  font-size: 24px;\n}\n\n.jumbotron {\n  padding: 2rem 1rem;\n  margin-bottom: 2rem;\n  background-color: #e9ecef;\n  border-radius: 0 !important;\n  height: 100vh;\n}\n\n.events-row {\n  position: fixed;\n  right: 30px;\n  bottom: 50px;\n  left: 20px;\n}\n\n.app-header {\n  width: 100%;\n  background-color: #8e24aa;\n  color: #fafafa;\n  cursor: pointer;\n}\n\n.app-header-mobile {\n  width: 100%;\n  background-color: #8e24aa;\n  color: #fafafa;\n  cursor: pointer;\n}\n\n.room-header {\n  height: 100px;\n}\n\n.app-header-BLUES {\n  background-color: #00897b;\n}\n\n.event-0-BLUES {\n  background-color: #e0f2f1;\n}\n\n.event-1-BLUES {\n  background-color: #b2dfdb;\n}\n\n.event-2-BLUES {\n  background-color: #80cbc4;\n}\n\n.event-3-BLUES {\n  background-color: #4db6ac;\n}\n\n.event-4-BLUES {\n  background-color: #26a69a;\n}\n\n.app-header-SOUL {\n  background-color: #00acc1;\n}\n\n.event-0-SOUL {\n  background-color: #e0f7fa;\n}\n\n.event-1-SOUL {\n  background-color: #b2ebf2;\n}\n\n.event-2-SOUL {\n  background-color: #80deea;\n}\n\n.event-3-SOUL {\n  background-color: #4dd0e1;\n}\n\n.event-4-SOUL {\n  background-color: #26c6da;\n}\n\n.app-header-JAZZ {\n  background-color: #8e24aa;\n}\n\n.event-0-JAZZ {\n  background-color: #f3e5f5;\n}\n\n.event-1-JAZZ {\n  background-color: #e1bee7;\n}\n\n.event-2-JAZZ {\n  background-color: #ce93d8;\n}\n\n.event-3-JAZZ {\n  background-color: #ba68c8;\n}\n\n.event-4-JAZZ {\n  background-color: #ab47bc;\n}\n\n.app-header-ROCK {\n  background-color: #494949;\n}\n\n.event-0-ROCK {\n  background-color: #fafafa;\n}\n\n.event-1-ROCK {\n  background-color: #f5f5f5;\n}\n\n.event-2-ROCK {\n  background-color: #eeeeee;\n}\n\n.event-3-ROCK {\n  background-color: #e0e0e0;\n}\n\n.event-4-ROCK {\n  background-color: #bdbdbd;\n}\n\n.app-header-JOIKU {\n  background-color: #039be5;\n}\n\n.event-0-JOIKU {\n  background-color: #e1f5fe;\n}\n\n.event-1-JOIKU {\n  background-color: #b3e5fc;\n}\n\n.event-2-JOIKU {\n  background-color: #81d4fa;\n}\n\n.event-3-JOIKU {\n  background-color: #4fc3f7;\n}\n\n.event-4-JOIKU {\n  background-color: #29b6f6;\n}\n\n/* Progress Bar */\n\n.progress {\n  float: left;\n  z-index: 99;\n  position: relative;\n  height: 4px;\n  display: block;\n  width: 100%;\n  background-color: #e1bee7;\n  border-radius: 2px;\n  background-clip: padding-box;\n  margin: 0;\n  overflow: hidden;\n}\n\n.progress .indeterminate {\n  background-color: #8e24aa;\n}\n\n.progress .indeterminate:before {\n  content: '';\n  position: absolute;\n  background-color: inherit;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  will-change: left, right;\n  -webkit-animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;\n  animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;\n}\n\n.progress .indeterminate:after {\n  content: '';\n  position: absolute;\n  background-color: inherit;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  will-change: left, right;\n  -webkit-animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;\n  animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;\n  -webkit-animation-delay: 1.15s;\n  animation-delay: 1.15s;\n}\n\n@-webkit-keyframes indeterminate {\n  0% {\n    left: -35%;\n    right: 100%;\n  }\n  60% {\n    left: 100%;\n    right: -90%;\n  }\n  100% {\n    left: 100%;\n    right: -90%;\n  }\n}\n\n@keyframes indeterminate {\n  0% {\n    left: -35%;\n    right: 100%;\n  }\n  60% {\n    left: 100%;\n    right: -90%;\n  }\n  100% {\n    left: 100%;\n    right: -90%;\n  }\n}\n\n@-webkit-keyframes indeterminate-short {\n  0% {\n    left: -200%;\n    right: 100%;\n  }\n  60% {\n    left: 107%;\n    right: -8%;\n  }\n  100% {\n    left: 107%;\n    right: -8%;\n  }\n}\n\n@keyframes indeterminate-short {\n  0% {\n    left: -200%;\n    right: 100%;\n  }\n  60% {\n    left: 107%;\n    right: -8%;\n  }\n  100% {\n    left: 107%;\n    right: -8%;\n  }\n}\n\n.ripple {\n  position: relative;\n  overflow: hidden;\n  -webkit-transform: translate3d(0, 0, 0);\n          transform: translate3d(0, 0, 0);\n}\n\n.ripple:after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  pointer-events: none;\n  background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);\n  background-repeat: no-repeat;\n  background-position: 50%;\n  -webkit-transform: scale(10, 10);\n          transform: scale(10, 10);\n  opacity: 0;\n  -webkit-transition: opacity 1s, -webkit-transform .5s;\n  transition: opacity 1s, -webkit-transform .5s;\n  transition: transform .5s, opacity 1s;\n  transition: transform .5s, opacity 1s, -webkit-transform .5s;\n}\n\n.ripple:active:after {\n  -webkit-transform: scale(0, 0);\n          transform: scale(0, 0);\n  opacity: .3;\n  -webkit-transition: 0s;\n  transition: 0s;\n}\n\n/* The snackbar - position it at the bottom and in the middle of the screen */\n\n#snackbar {\n  visibility: hidden; /* Hidden by default. Visible on click */\n  min-width: 300px; /* Set a default minimum width */\n  margin-left: -150px; /* Divide value of min-width by 2 */\n  background-color: #333; /* Black background color */\n  color: #fff; /* White text color */\n  text-align: center; /* Centered text */\n  border-radius: 2px; /* Rounded borders */\n  padding: 16px; /* Padding */\n  position: fixed; /* Sit on top of the screen */\n  z-index: 1; /* Add a z-index if needed */\n  left: 50%; /* Center the snackbar */\n  bottom: 15px; /* 30px from the bottom */\n}\n\n/* Show the snackbar when clicking on a button (class added with JavaScript) */\n\n#snackbar.show {\n  visibility: visible; /* Show the snackbar */\n  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.\n However, delay the fade out process for 2.5 seconds */\n  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;\n  animation: fadein 0.5s, fadeout 0.5s 2.5s;\n}\n\n/* Animations to fade the snackbar in and out */\n\n@-webkit-keyframes fadein {\n  from {bottom: 0; opacity: 0;}\n  to {bottom: 15px; opacity: 1;}\n}\n\n@keyframes fadein {\n  from {bottom: 0; opacity: 0;}\n  to {bottom: 15px; opacity: 1;}\n}\n\n@-webkit-keyframes fadeout {\n  from {bottom: 15px; opacity: 1;}\n  to {bottom: 0; opacity: 0;}\n}\n\n@keyframes fadeout {\n  from {bottom: 15px; opacity: 1;}\n  to {bottom: 0; opacity: 0;}\n}\n\n.overlay {\n  display: none;\n  height: 100%;\n  width: 100%;\n  position: fixed; /* Stay in place */\n  z-index: 50; /* Sit on top */\n  left: 0;\n  top: 0;\n  background-color: rgb(0,0,0); /* Black fallback color */\n  background-color: rgba(0,0,0, 0.3); /* Black w/opacity */\n  overflow-x: hidden; /* Disable horizontal scroll */\n}\n"
 
 /***/ }),
 
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app-header app-header-{{roomName}} p-2\" (click)=\"showMenu()\">\n  <i class=\"fas fa-bars fa-3x\"></i>\n</div>\n\n<div id=\"toggle\">\n  <span class=\"dropdown-item-text\">\n    <i class=\"fas fa-cog\"></i>\n    Settings\n  </span>\n\n  <div class=\"dropdown-divider\"></div>\n\n  <a class=\"dropdown-item\" href=\"#\" *ngIf=\"!isSignedIn\" (click)=\"handleAuthClick()\">\n    <i class=\"fab fa-google\"></i>\n    Authorize\n  </a>\n  <a class=\"dropdown-item\" href=\"#\" *ngIf=\"isSignedIn\" (click)=\"handleSignoutClick()\">\n    <i class=\"fas fa-sign-out-alt\"></i>\n    Sign Out\n  </a>\n  <a class=\"dropdown-item\" href=\"#\" *ngIf=\"isSignedIn\" (click)=\"fetchEvents()\">\n    <i class=\"fas fa-cloud-download-alt\"></i>\n    Fetch events\n  </a>\n\n  <div class=\"dropdown-divider\"></div>\n\n  <span class=\"dropdown-item-text\">\n    <i class=\"fas fa-th-large\"></i>\n    Rooms\n  </span>\n\n  <a class=\"dropdown-item\" (click)=\"chooseRoom(JAZZ)\">\n    <div class=\"form-check\">\n      <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios\" value=\"option1\" checked>\n      <label class=\"form-check-label\">\n        Jazz\n      </label>\n    </div>\n  </a>\n  <a class=\"dropdown-item\" (click)=\"chooseRoom(SOUL)\">\n    <div class=\"form-check\">\n      <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios\" value=\"option1\">\n      <label class=\"form-check-label\">\n        Soul\n      </label>\n    </div>\n  </a>\n  <a class=\"dropdown-item\" (click)=\"chooseRoom(ROCK)\">\n    <div class=\"form-check\">\n      <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios\" value=\"option1\">\n      <label class=\"form-check-label\">\n        Rock\n      </label>\n    </div>\n  </a>\n  <a class=\"dropdown-item\" (click)=\"chooseRoom(BLUES)\">\n    <div class=\"form-check\">\n      <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios\" value=\"option1\">\n      <label class=\"form-check-label\">\n        Blues\n      </label>\n    </div>\n  </a>\n  <a class=\"dropdown-item\" (click)=\"chooseRoom(JOIKU)\">\n    <div class=\"form-check\">\n      <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios\" value=\"option1\">\n      <label class=\"form-check-label\">\n        Joiku\n      </label>\n    </div>\n  </a>\n\n  <div class=\"dropdown-divider\"></div>\n\n  <a class=\"dropdown-item\" href=\"#\" (click)=\"showMenu()\">\n    Close\n  </a>\n\n</div>\n\n<ng-container *ngIf=\"events.length > 0\">\n    <ng-container *ngIf=\"isFree\">\n      <div class=\"jumbotron\">\n        <h1 class=\"display-1 mt-2\">{{roomName}}</h1>\n        <h1 class=\"display-3\">Vapaa</h1>\n        <p class=\"lead\">Seuraava: {{events[0].summary}}, {{resolveNextEvent()}} klo {{events[0].start | date : 'HH:mm'}}</p>\n        <div class=\"row events-row\">\n          <ng-container *ngFor=\"let event of events; let i = index\">\n            <div class=\"col p-2 mr-1 event-{{i}}-{{roomName}}\">\n              <div>{{event.summary}}</div>\n              <div class=\"mt-4\">\n                <span class=\"text-capitalize\">{{resolveEvent(event)}}</span>\n                klo {{event.start | date : 'HH:mm'}} - {{event.end | date : 'HH:mm'}}\n              </div>\n            </div>\n          </ng-container>\n        </div>\n      </div>\n    </ng-container>\n\n    <ng-container *ngIf=\"!isFree && nowEvent\">\n      <div class=\"jumbotron\">\n        <h1 class=\"display-1 mt-2\">{{roomName}}</h1>\n        <h1 class=\"display-4\">{{nowEvent.summary}}</h1>\n        <p class=\"lead\">\n          {{nowEvent.start | date : 'HH:mm'}} - {{nowEvent.end | date : 'HH:mm'}}\n          <br />\n          {{nowEvent.creator.displayName}}\n        </p>\n        <p class=\"lead\">Seuraava: {{events[0].summary}}, {{resolveNextEvent()}} klo {{events[0].start | date : 'HH:mm'}}</p>\n        <div class=\"row events-row\">\n          <ng-container *ngFor=\"let event of events; let i = index\">\n            <div class=\"col p-2 mr-1 event-{{i}}-{{roomName}}\">\n              <div>{{event.summary}}</div>\n              <div class=\"mt-4\">\n                <span class=\"text-capitalize\">{{resolveEvent(event)}}</span>\n                klo {{event.start | date : 'HH:mm'}} - {{event.end | date : 'HH:mm'}}\n              </div>\n            </div>\n          </ng-container>\n        </div>\n      </div>\n    </ng-container>\n</ng-container>\n"
+module.exports = "<div id=\"overlay\" class=\"overlay\" (click)=\"toggleBooking(roomName)\"></div>\n<div id=\"overlay-main\" class=\"overlay\" (click)=\"toggleMenu()\"></div>\n\n<div id=\"toggle\">\n  <span class=\"dropdown-item-text mt-2 mb-5\">\n    <i class=\"fas fa-cog\"></i>\n    Settings\n  </span>\n  <div class=\"dropdown-divider\"></div>\n\n  <a class=\"dropdown-item\" href=\"#\" *ngIf=\"!isSignedIn\" (click)=\"handleAuthClick()\">\n    <i class=\"fab fa-google\"></i>\n    Authorize\n  </a>\n  <a class=\"dropdown-item\" href=\"#\" *ngIf=\"isSignedIn\" (click)=\"handleSignoutClick()\">\n    <i class=\"fas fa-sign-out-alt\"></i>\n    Sign Out\n  </a>\n  <div class=\"dropdown-divider\"></div>\n\n  <!--\n  <a class=\"dropdown-item\" href=\"#\" *ngIf=\"isSignedIn\" (click)=\"fetchEvents()\">\n    <i class=\"fas fa-cloud-download-alt\"></i>\n    Fetch events\n  </a>\n\n  <div class=\"dropdown-divider\"></div>\n  -->\n\n  <span class=\"dropdown-item-text\">\n    <i class=\"fas fa-th-large\"></i>\n    Rooms\n  </span>\n\n  <ng-container *ngFor=\"let room of rooms\">\n    <a class=\"dropdown-item\" (click)=\"chooseRoom(room.id)\">\n      {{room.name}}\n      <i class=\"fas fa-check\" *ngIf=\"chosenRoom === room.id\"></i></a>\n  </ng-container>\n\n\n</div>\n\n<div class=\"app-header app-header-{{roomName}} p-2\" (click)=\"toggleMenu()\" *ngIf=\"!isMobile\">\n  <i class=\"fas fa-calendar-alt fa-3x\"></i>\n</div>\n\n<ng-container *ngIf=\"events.length > 0 && !isMobile\">\n  <ng-container *ngIf=\"isFree\">\n    <div class=\"jumbotron\">\n      <h1 class=\"display-1 mt-2\">{{roomName}}</h1>\n      <h1 class=\"display-3\">Vapaa</h1>\n      <p class=\"lead\">Seuraava: {{events[0].summary}}, {{resolveNextEvent()}} klo {{events[0].start | date :\n        'HH:mm'}}</p>\n      <div class=\"row events-row\">\n        <ng-container *ngFor=\"let event of events; let i = index\">\n          <div class=\"col p-2 mr-1 event-{{i}}-{{roomName}}\">\n            <div>{{event.summary}}</div>\n            <div class=\"mt-4\">\n              <span class=\"text-capitalize\">{{resolveEvent(event)}}</span>\n              klo {{event.start | date : 'HH:mm'}} - {{event.end | date : 'HH:mm'}}\n            </div>\n          </div>\n        </ng-container>\n      </div>\n    </div>\n  </ng-container>\n\n  <ng-container *ngIf=\"!isFree && nowEvent\">\n    <div class=\"jumbotron\">\n      <h1 class=\"display-1 mt-2\">{{roomName}}</h1>\n      <h1 class=\"display-4\">{{nowEvent.summary}}</h1>\n      <p class=\"lead\">\n        {{nowEvent.start | date : 'HH:mm'}} - {{nowEvent.end | date : 'HH:mm'}}\n        <br/>\n        {{nowEvent.creator.displayName}}\n      </p>\n      <p class=\"lead\">Seuraava: {{events[0].summary}}, {{resolveNextEvent()}} klo {{events[0].start | date :\n        'HH:mm'}}</p>\n      <div class=\"row events-row\">\n        <ng-container *ngFor=\"let event of events; let i = index\">\n          <div class=\"col p-2 mr-1 event-{{i}}-{{roomName}}\">\n            <div>{{event.summary}}</div>\n            <div class=\"mt-4\">\n              <span class=\"text-capitalize\">{{resolveEvent(event)}}</span>\n              klo {{event.start | date : 'HH:mm'}} - {{event.end | date : 'HH:mm'}}\n            </div>\n          </div>\n        </ng-container>\n      </div>\n    </div>\n  </ng-container>\n</ng-container>\n\n<!-- mobile view -->\n<div class=\"mobile d-block d-sm-none\">\n  <div id=\"toggle-booking\">\n    <span class=\"dropdown-item-text mt-2 mb-5\">\n      <i class=\"far fa-calendar-alt\"></i>\n      {{roomName}} - Tee varaus\n    </span>\n\n    <div class=\"dropdown-divider\"></div>\n\n    <a class=\"dropdown-item\" href=\"#\" (click)=\"bookRoom(15)\">\n      <i class=\"far fa-clock\"></i>\n      15 min\n    </a>\n\n    <a class=\"dropdown-item\" href=\"#\" (click)=\"bookRoom(30)\">\n      <i class=\"far fa-clock\"></i>\n      30 min\n    </a>\n\n    <a class=\"dropdown-item\" href=\"#\" (click)=\"bookRoom(45)\">\n      <i class=\"far fa-clock\"></i>\n      45 min\n    </a>\n\n    <a class=\"dropdown-item\" href=\"#\" (click)=\"bookRoom(60)\">\n      <i class=\"far fa-clock\"></i>\n      60 min\n    </a>\n\n  </div>\n  <div class=\"progress\" style=\"display:none;\">\n    <div class=\"indeterminate\"></div>\n  </div>\n\n  <div class=\"app-header-mobile app-header-{{roomName}} p-2\">\n    <i class=\"far fa-calendar-alt fa-3x mb-1\"></i>\n  </div>\n\n  <div class=\"text-center mt-5\" *ngIf=\"!isSignedIn\">\n    <div class=\"event-4-ROCK p-5 ripple\" (click)=\"handleAuthClickMobile()\">\n      <i class=\"fab fa-google fa-2x\"></i> Sign in with Google\n    </div>\n\n  </div>\n\n  <ng-container *ngIf=\"isSignedIn\">\n    <ng-container *ngFor=\"let room of rooms\">\n      <div class=\"room-header p-2 event-4-{{room.name}} mt-2 ripple\" (click)=\"toggleBooking(room)\">\n        <h1 class=\"display-4 mt-2\">{{room.name}}</h1>\n      </div>\n    </ng-container>\n  </ng-container>\n</div>\n\n<div id=\"snackbar\">\n  Varaus onnistui. {{roomName}} varattu {{bookingTime}} min.\n</div>\n"
 
 /***/ }),
 
@@ -61,7 +61,14 @@ var AppComponent = /** @class */ (function () {
         this.JAZZ = 'visma.com_f62kg5sc74kmcfcs6kt61939ro@group.calendar.google.com';
         this.ROCK = 'visma.com_9bql35s40br3mdlngd8glo0sek@group.calendar.google.com';
         this.JOIKU = 'visma.com_2vdf38fprd1c94m8j1q0bm4prg@group.calendar.google.com';
-        this.chosenRoom = this.JAZZ;
+        this.rooms = [
+            { id: this.SOUL, name: 'SOUL' },
+            { id: this.JAZZ, name: 'JAZZ' },
+            { id: this.BLUES, name: 'BLUES' },
+            { id: this.ROCK, name: 'ROCK' },
+            { id: this.JOIKU, name: 'JOIKU' }
+        ];
+        this.isMobile = false;
         this.initClient = this.initClient.bind(this);
     }
     AppComponent.prototype.initClient = function () {
@@ -117,8 +124,9 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.handleAuthClick = function (event) {
         var self = this;
         self.isSignedIn = true;
-        self.events = [];
-        self.listUpcomingEvents();
+        gapi.auth2.getAuthInstance().signIn();
+    };
+    AppComponent.prototype.handleAuthClickMobile = function () {
         gapi.auth2.getAuthInstance().signIn();
     };
     AppComponent.prototype.handleSignoutClick = function (event) {
@@ -126,7 +134,7 @@ var AppComponent = /** @class */ (function () {
         self.isSignedIn = false;
         self.events = [];
         gapi.auth2.getAuthInstance().signOut();
-        self.showMenu();
+        self.toggleMenu();
     };
     AppComponent.prototype.checkIsNow = function (event) {
         var now = (new Date());
@@ -177,8 +185,44 @@ var AppComponent = /** @class */ (function () {
         }
         return day;
     };
-    AppComponent.prototype.showMenu = function () {
+    AppComponent.prototype.toggleMenu = function () {
         $('#toggle').toggle('slide');
+        $('#overlay-main').toggle();
+    };
+    AppComponent.prototype.toggleBooking = function (room) {
+        this.roomName = room.name;
+        this.chosenRoom = room.id;
+        $('#toggle-booking').toggle('slide');
+        $('#overlay').toggle();
+    };
+    AppComponent.prototype.bookRoom = function (bookingTime) {
+        var self = this;
+        $('.progress').show();
+        this.bookingTime = bookingTime;
+        var start = new Date();
+        var end = new Date();
+        end.setHours(start.getHours(), start.getMinutes() + bookingTime);
+        var event = {
+            'summary': ' Varattu',
+            'description': 'Varaus tehty app:n kautta.',
+            'start': {
+                'dateTime': start.toISOString()
+            },
+            'end': {
+                'dateTime': end.toISOString()
+            }
+        };
+        $('#toggle-booking').toggle('slide');
+        $('#overlay').toggle();
+        var request = gapi.client.calendar.events.insert({
+            'calendarId': self.chosenRoom,
+            'resource': event
+        });
+        request.execute(function () {
+            $('.progress').hide();
+            $('#snackbar').addClass('show');
+            setTimeout(function () { $('#snackbar').removeClass('show'); }, 3000);
+        });
     };
     AppComponent.prototype.chooseRoom = function (room) {
         this.chosenRoom = room;
@@ -187,12 +231,19 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.ngOnInit = function () {
         gapi.load('client:auth2', this.initClient);
         var self = this;
-        setInterval(function () {
-            var date = new Date();
-            if (date.getMinutes() % 5 === 0) {
-                self.fetchEvents();
-            }
-        }, 10000);
+        if ($('.mobile').is(':visible')) {
+            this.isMobile = true;
+        }
+        if (!this.isMobile) {
+            setInterval(function () {
+                if (!self.isFree && self.nowEvent && new Date(self.nowEvent.end).getTime() < new Date().getTime()) {
+                    self.fetchEvents();
+                }
+                else if (self.isFree) {
+                    self.fetchEvents();
+                }
+            }, 10000);
+        }
     };
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
