@@ -142,7 +142,6 @@ class AppElement extends LitElement {
           ${this.events.map(data => html`
             <div class="card mb-1">
               <div class="card-body">
-                <h5 class="card-title"><div>${data.name.fi}</div></h5>
                 <div class="row">
                   <div class="col">
                     ${data.description.images !== null && data.description.images.length > 0 ? html`
@@ -162,9 +161,7 @@ class AppElement extends LitElement {
 
                   </div>
                   <div class="col">
-                    <p>
-                      <h3>${data.name.fi}</h3>
-                    </p>
+                  <h3>${data.name.fi}</h3>
                     <p class="card-text">
                       ${data.description.intro ? html`${data.description.intro.replace('Lue lisää...', '')}<br />` : ''}
 
