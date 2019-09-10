@@ -1,13 +1,17 @@
-import { LitElement, html, css } from "../node_modules/lit-element/lit-element.js";
-import { unsafeHTML } from "../node_modules/lit-html/directives/unsafe-html.js";
-import "./map-element.js";
-import "./nav-element.js";
+import { LitElement, html, css } from 'lit-element';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html';
+
+import './map-element'
+import './nav-element'
+
 const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
 const EVENTS_API = `${CORS_PROXY}http://open-api.myhelsinki.fi/v1/events/?limit=10`;
 const PLACES_API = `${CORS_PROXY}http://open-api.myhelsinki.fi/v1/places/?limit=10`;
 const ACTIVITIES_API = `${CORS_PROXY}http://open-api.myhelsinki.fi/v1/activities/?limit=10`;
 
+
 class AppElement extends LitElement {
+
   static get properties() {
     return {
       api: {
@@ -111,31 +115,30 @@ class AppElement extends LitElement {
     this.display = false;
     this.displayImages = false;
     this.addEventListener('navigate-event', this.navigate);
-    this.api = EVENTS_API; //this.api = 'test-data/activities.json';
-
+    this.api = EVENTS_API;
+    //this.api = 'test-data/activities.json';
     this.selectedItem = 'Event';
     this.images = [];
     const self = this;
-
-    window.onscroll = function () {
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-        self.fetchNext(self.next);
-      }
+    window.onscroll = function() {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+            self.fetchNext(self.next);
+        }
     };
   }
 
   render() {
-    return html`
+    return html `
       <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" integrity="sha256-piqEf7Ap7CMps8krDQsSOTZgF+MU/0MPyPW2enj5I40=" crossorigin="anonymous" />
 
       <div class="row">
-        <div class="col-lg-4”>
+        <div class="col-lg-4">
           <nav-element></nav-element>
         </div>
         <div class="col-lg-8 cards-list">
 
-        ${this.events ? html`
+        ${this.events? html`
           ${this.events.map(data => html`
             <div class="card mb-1">
               <div class="card-body">
@@ -147,7 +150,8 @@ class AppElement extends LitElement {
                       src="${data.description.images[0].url}" alt="${data.description.images[0].url}"
                       @click=${() => this.openImages(data.description.images)}
                        />
-                      ` : html`
+                      `
+                    : html`
                       <svg class="event-img" xmlns="http://www.w3.org/2000/svg"
                         preserveAspectRatio="xMidYMid slice" focusable="false" role="img" a
                         ria-label="Placeholder: Image cap">
@@ -163,28 +167,29 @@ class AppElement extends LitElement {
                       <strong>${data.name.fi}</strong>
                     </p>
                     <p class="card-text">
-                      ${data.description.intro ? html`${data.description.intro.replace('Lue lisää...', '')}<br />` : ''}
+                      ${data.description.intro? html`${data.description.intro.replace('Lue lisää...', '')}<br />`:''}
 
                       ${this.selectedItem === 'Places' || this.selectedItem === 'Activities' ? unsafeHTML(data.description.body) : ''}<br />
-                      ${data.info_url ? html`<a href="${data.info_url}" class="fake-link" target="blank_">Info</a>` : ''}
+                      ${data.info_url? html`<a href="${data.info_url}" class="fake-link" target="blank_">Info</a>`:''}
                     </p>
 
                     <p class="align-text-bottom">
                       <a class="fake-link" @click=${() => this.openMap(data.location.lat, data.location.lon)}>
                         ${data.location.address.street_address} <i class="fas fa-map-marker-alt ml-1"></i>
                       </a> <br />
-                      ${data.event_dates ? html`
+                      ${data.event_dates? html`
                         ${this.dateFormat(data.event_dates.starting_day)}
-                        ${data.event_dates.ending_day ? html`- ${this.dateFormat(data.event_dates.ending_day)}` : ''}
-                      ` : ''}
+                        ${data.event_dates.ending_day ? html`- ${this.dateFormat(data.event_dates.ending_day)}`:''}
+                      `: ''}
 
                     </p>
 
-                    ${data.where_when_duration ? html`
+                    ${data.where_when_duration? html `
                       <p>
                         ${data.where_when_duration.where_and_when}, ${data.where_when_duration.duration}
                       </p>
-                      ` : ``}
+                      `
+                    :``}
 
 
 
@@ -201,7 +206,7 @@ class AppElement extends LitElement {
               </div>
             </div>
           `)}
-          ` : ''}
+          `: ''}
         </div>
       </div>
       <div class="row">
@@ -213,25 +218,29 @@ class AppElement extends LitElement {
 
       <div class="fixed-bottom p-2 fa-3x fake-link" @click=${() => window.scrollTo(0, 0)} style="width:50px"><i class="fas fa-caret-square-up"></i></div>
 
-      <map-element lat=${this.lat} lon=${this.lon} info=${this.info} class="${this.display ? 'show' : 'hide'}"></map-element>
-      <carousel-element class="${this.displayImages ? 'show' : 'hide'}" .images=${this.images}></carousel-element>
-      <div id="overlay" class="${this.display || this.displayImages ? 'show' : 'hide'}" @click=${() => this.closeModal()}></div>
+      <map-element lat=${this.lat} lon=${this.lon} info=${this.info} class="${this.display? 'show':'hide'}"></map-element>
+      <carousel-element class="${this.displayImages? 'show':'hide'}" .images=${this.images}></carousel-element>
+      <div id="overlay" class="${this.display || this.displayImages? 'show':'hide'}" @click=${() => this.closeModal()}></div>
     `;
   }
 
   async firstUpdated() {
-    await fetch(this.api).then(r => r.json()).then(async json => {
-      this.events = json.data;
-      this.next = json.meta.next;
-    });
+    await fetch(this.api)
+      .then(r => r.json())
+      .then(async json => {
+        this.events = json.data;
+        this.next = json.meta.next;
+      });
   }
 
   fetchNext(url) {
-    if (url) {
-      fetch(`${CORS_PROXY}${url}`).then(r => r.json()).then(async json => {
-        json.data.map(data => this.events.push(data));
-        this.next = json.meta.next;
-      });
+    if(url) {
+      fetch(`${CORS_PROXY}${url}`)
+        .then(r => r.json())
+        .then(async json => {
+          json.data.map(data => this.events.push(data));
+          this.next = json.meta.next;
+        });
     }
   }
 
@@ -241,24 +250,28 @@ class AppElement extends LitElement {
     event.detail.value === 'Activities' ? this.api = ACTIVITIES_API : '';
     this.selectedItem = event.detail.value;
     this.shadowRoot.querySelector('.cards-list').style.display = 'none';
-    fetch(this.api).then(r => r.json()).then(async json => {
-      this.events = json.data;
-      this.next = json.meta.next;
-      this.shadowRoot.querySelector('.cards-list').style.display = 'block';
-    });
-    document.getElementById('info_active').innerHTML = event.detail.value;
+    fetch(this.api)
+      .then(r => r.json())
+      .then(async json => {
+        this.events = json.data;
+        this.next = json.meta.next;
+        this.shadowRoot.querySelector('.cards-list').style.display = 'block';
+      });
+      document.getElementById('info_active').innerHTML = event.detail.value;
   }
 
   filter(tag) {
     let url = `${this.api}&tags_search=${tag}`;
     this.shadowRoot.querySelector('.cards-list').style.display = 'none';
-    fetch(url).then(r => r.json()).then(async json => {
-      this.events = json.data;
-      this.next = json.meta.next;
-      this.shadowRoot.querySelector('.cards-list').style.display = 'block';
-    });
-    const navElement = this.shadowRoot.querySelector('nav-element');
-    navElement.setFilter(this.selectedItem, tag);
+    fetch(url)
+      .then(r => r.json())
+      .then(async json => {
+        this.events = json.data;
+        this.next = json.meta.next;
+        this.shadowRoot.querySelector('.cards-list').style.display = 'block';
+      });
+      const navElement = this.shadowRoot.querySelector('nav-element');
+      navElement.setFilter(this.selectedItem, tag);
   }
 
   openMap(lat, lon, info) {
@@ -269,27 +282,28 @@ class AppElement extends LitElement {
   }
 
   openImages(images) {
-    if (images.length > 1) {
+    if(images.length > 1) {
       this.displayImages = true;
       this.images = images;
     }
   }
 
   closeModal() {
-    if (this.display) {
+    if(this.display) {
       this.display = !this.display;
     }
 
-    if (this.displayImages) {
+    if(this.displayImages) {
       this.displayImages = !this.displayImages;
     }
+
   }
 
   dateFormat(d) {
-    let date = new Date(d);
-    return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}
-              klo ${date.getUTCHours()}:${date.getUTCMinutes() === 0 ? '00' : date.getUTCMinutes()}`;
-  }
+      let date = new Date(d);
+      return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}
+              klo ${date.getUTCHours()}:${date.getUTCMinutes() === 0? '00':date.getUTCMinutes()}`;
+  };
 
 }
 
