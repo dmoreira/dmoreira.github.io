@@ -61,7 +61,7 @@ class AppElement extends LitElement {
       .fake-link:hover {color: #666 !important;}
       .hide {display:none;}
       .show {display:block;}
-      .event-img {max-width: 460px;}
+      .event-img {max-width: 550px;}
       #overlay {
         position: fixed;
         width: 100%;
