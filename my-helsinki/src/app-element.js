@@ -54,6 +54,9 @@ class AppElement extends LitElement {
 
   static get styles() {
     return css`
+      p {
+          font-size: 20px;
+      }
       .fake-link {cursor:pointer;}
       .fake-link:hover {color: #666 !important;}
       .hide {display:none;}
@@ -113,7 +116,7 @@ class AppElement extends LitElement {
     this.addEventListener('navigate-event', this.navigate);
     this.api = EVENTS_API; //this.api = 'test-data/activities.json';
 
-    this.selectedItem = 'Event';
+    this.selectedItem = 'Events';
     this.images = [];
     const self = this;
 
@@ -160,7 +163,7 @@ class AppElement extends LitElement {
                   </div>
                   <div class="col">
                     <p>
-                      <strong>${data.name.fi}</strong>
+                      <h3>${data.name.fi}</h3>
                     </p>
                     <p class="card-text">
                       ${data.description.intro ? html`${data.description.intro.replace('Lue lisää...', '')}<br />` : ''}
@@ -195,7 +198,7 @@ class AppElement extends LitElement {
               <div class="card-footer">
                 <div class="float-right">
                   ${data.tags.map(tag => html`
-                    <h2 class="float-left mr-2"><span class="badge badge-warning fake-link" @click=${() => this.filter(tag.name)}>${tag.name}</span></h2>
+                    <h4 class="float-left mr-2"><span class="badge badge-warning fake-link" @click=${() => this.filter(tag.name)}>${tag.name}</span></h4>
                   `)}
                 </div>
               </div>

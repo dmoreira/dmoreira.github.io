@@ -4,7 +4,8 @@ class NavElement extends LitElement {
   static get properties() {
     return {
       filter: {
-        type: String
+        type: String,
+        reflect: true
       },
       tag: {
         type: String,
@@ -16,6 +17,12 @@ class NavElement extends LitElement {
   static get styles() {
     return css`
       .fake-link {cursor:pointer;}
+      .truncate {
+        max-width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     `;
   }
 
@@ -32,26 +39,26 @@ class NavElement extends LitElement {
 
       <ul class="list-group">
         <li class="list-group-item">
-          <h4 class="fake-link" @click=${() => this.navigate('Events')}>
+          <h4 class="fake-link display-4" @click=${() => this.navigate('Events')}>
             <i class="fas fa-calendar-alt"></i> Events
             <div class="float-right" style="font-size: 18px">
-              ${this.filter === 'Events' ? html`<span class="badge badge-warning fake-link">${this.tag} <i class="fas fa-times"></i></span>` : ``}
+              ${this.filter === 'Events' ? html`<h4><span class="badge badge-warning fake-link mt-4">${this.tag} <i class="fas fa-times"></i></span></h4>` : ``}
             </div>
           </h4>
         </li>
         <li class="list-group-item">
-          <h4 class="fake-link" @click=${() => this.navigate('Activities')}>
+          <h4 class="fake-link display-4" @click=${() => this.navigate('Activities')}>
             <i class="fas fa-hiking"></i> Activities
             <div class="float-right" style="font-size: 18px">
-              ${this.filter === 'Activities' ? html`<span class="badge badge-warning fake-link">${this.tag} <i class="fas fa-times"></i></span>` : ``}
+              ${this.filter === 'Activities' ? html`<h4><span class="badge badge-warning fake-link">${this.tag} <i class="fas fa-times"></i></span></h4>` : ``}
             </div>
           </h4>
         </li>
         <li class="list-group-item">
-          <h4 class="fake-link" @click=${() => this.navigate('Places')}>
+          <h4 class="fake-link display-4" @click=${() => this.navigate('Places')}>
             <i class="fas fa-map-marked-alt"></i> Places
             <div class="float-right" style="font-size: 18px">
-              ${this.filter === 'Places' ? html`<span class="badge badge-warning fake-link">${this.tag} <i class="fas fa-times"></i></span>` : ``}
+              ${this.filter === 'Places' ? html`<h4><span class="badge badge-warning fake-link">${this.tag} <i class="fas fa-times"></i></span></h4>` : ``}
             </div>
           </h4>
         </li>
@@ -72,8 +79,10 @@ class NavElement extends LitElement {
   }
 
   setFilter(filter, tag) {
+    console.log(filter + ' ' + tag);
     this.filter = filter;
     this.tag = tag;
+    super.performUpdate();
   }
 
 }
