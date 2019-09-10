@@ -195,7 +195,7 @@ class AppElement extends LitElement {
               <div class="card-footer">
                 <div class="float-right">
                   ${data.tags.map(tag => html`
-                    <span class="badge badge-warning fake-link" @click=${() => this.filter(tag.name)}>${tag.name}</span>
+                    <h2 class"float-left mr-2"><span class="badge badge-warning fake-link" @click=${() => this.filter(tag.name)}>${tag.name}</span></h2>
                   `)}
                 </div>
               </div>
