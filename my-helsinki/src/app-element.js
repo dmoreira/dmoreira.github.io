@@ -130,10 +130,10 @@ class AppElement extends LitElement {
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" integrity="sha256-piqEf7Ap7CMps8krDQsSOTZgF+MU/0MPyPW2enj5I40=" crossorigin="anonymous" />
 
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-lg-4”>
           <nav-element></nav-element>
         </div>
-        <div class="col-md-8 cards-list">
+        <div class="col-lg-8 cards-list">
 
         ${this.events ? html`
           ${this.events.map(data => html`
