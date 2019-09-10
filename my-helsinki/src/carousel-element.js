@@ -56,13 +56,12 @@ class CarouselElement extends LitElement {
     .prev, .next {
       cursor: pointer;
       position: absolute;
-      top: 50%;
+      top: 40%;
       width: auto;
-      margin-top: -22px;
-      padding: 16px;
+      padding: 80px 30px 80px 30px;
       color: white;
       font-weight: bold;
-      font-size: 18px;
+      font-size: 25px;
       transition: 0.6s ease;
       border-radius: 0 3px 3px 0;
       user-select: none;
