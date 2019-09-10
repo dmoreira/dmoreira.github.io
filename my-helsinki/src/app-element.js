@@ -205,7 +205,7 @@ class AppElement extends LitElement {
         </div>
       </div>
       <div class="row">
-        <div class="col"></div>
+        <div class="col .d-md-none .d-lg-block"></div>
         <div class="col-md-8">
           <div class="progress-line mt-1 mb-3 loading-bottom"></div>
         </div>
