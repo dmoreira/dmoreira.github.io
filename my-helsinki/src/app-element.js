@@ -269,10 +269,8 @@ class AppElement extends LitElement {
   }
 
   openImages(images) {
-    if (images.length > 1) {
-      this.displayImages = true;
-      this.images = images;
-    }
+    this.displayImages = true;
+    this.images = images;
   }
 
   closeModal() {
