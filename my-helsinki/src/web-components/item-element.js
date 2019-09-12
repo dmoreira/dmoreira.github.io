@@ -78,7 +78,7 @@ class ItemElement extends LitElement {
 
         <carousel-element .images=${this.images}></carousel-element>
 
-        <div class="row mt-3 p2">
+        <div class="row mt-3 p-2">
           <div class="col-md-2 d-md-none d-lg-block"></div>
           <div class="col-lg-6">
             <h1>${this.data.name ? html`${this.data.name.fi}` : ''}</h1>
