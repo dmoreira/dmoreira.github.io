@@ -1,0 +1,127 @@
+<!doctype html>
+
+<head>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" integrity="sha256-piqEf7Ap7CMps8krDQsSOTZgF+MU/0MPyPW2enj5I40=" crossorigin="anonymous" />
+  <link rel="shortcut icon" type="image/png" href="https://www.polymer-project.org/images/logos/p-logo-32.png" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css" />
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <script src="/node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"></script>
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+  <script type="module" src="../../index.js"></script>
+  <script src="../../scripts.js"></script>
+
+  <title>My Helsinki!</title>
+
+</head>
+
+<body class="app-bg">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-light header">
+    <a class="navbar-brand" href="http://open-api.myhelsinki.fi/" target="_blank">
+      <img class="p-2" src="../../images/helsinki-light.svg" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../events">Events</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="../places">Places</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../activities">Activities</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        <i class="fas fa-globe"></i>
+        <a href="#/fi" class="mr-1">FI</a>
+        <a href="#/en" class="mr-1">EN</a>
+        <a href="#/sv" class="mr-1">SV</a>
+      </span>
+    </div>
+  </nav>
+  <div class="row">
+    <div class="col">
+      <div class="img-header-places">
+        <div class="img-header-caption p-5">
+          <h1>Places</h1>
+          <h1 class="display-4">Discover Helsinki and its surroundings</h1>
+          <a class="fake-link scroll-main-slider">More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">my-helsinki</li>
+      <li class="breadcrumb-item active">places</li>
+    </ol>
+  </nav>
+
+  <div class="row mt-5 main-slider invisible">
+    <div class="col text-center">
+      <h1 class="display-3">Places</h1>
+    </div>
+  </div>
+
+  <div class="row mt-5 main-slider">
+    <div class="col text-center">
+      <h1 class="display-3">Places</h1>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col text-center">
+      <span class="sub-categories">
+        <a class="mr-4 content-link fake-link" onclick="filter('Museum')">Museums</a>
+        <a class="mr-4 content-link fake-link" onclick="filter('SHOPPING')">Shopping</a>
+        <a class="mr-4 content-link fake-link" onclick="filter('Nature')">Nature</a>
+        <a class="mr-4 content-link fake-link" onclick="filter('Restaurant')">Restaurants</a>
+        <a class="mr-4 content-link fake-link" onclick="filter('BARS%20%26%20NIGHTLIFE')">Nightlife</a>
+        <a class="mr-4 content-link fake-link" onclick="filter('')">All</a>
+      </span>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col text-center">
+      <slider-element api="places" tags="Museum,Design,Nature,Restaurant,BARS%20%26%20NIGHTLIFE"></slider-element>
+    </div>
+  </div>
+
+  <div class="row slider-element invisible">
+    <div class="col text-center">
+      <h1 class="display-3">All events</h1>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col text-center">
+      <h1 class="display-3">Places <i class="fas fa-circle-notch fa-spin indicator"></i></h1>
+    </div>
+  </div>
+
+  <list-element api="places"></list-element>
+
+  <!--<div class="loading mx-auto">
+    <div class="fa-5x">
+      <i class="fas fa-circle-notch fa-spin"></i>
+    </div>
+  </div> -->
+
+  <div class="pl-1 fa-3x fake-link scroll-main-slider"><i class="fas fa-caret-square-up"></i></div>
+  <div class="bg-dark text-center p-4">
+    <span class="footer-text">
+      Powered by <a href="http://open-api.myhelsinki.fi/" target="_blank" class="footer-text">MyHelsinki Open API
+      </a>
+    </span>
+  </div>
+
+</body>
+
+</html>
