@@ -1,7 +1,6 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from "../../node_modules/lit-element/lit-element.js";
 
 class CarouselElement extends LitElement {
-
   static get properties() {
     return {
       slideIndex: {
@@ -17,7 +16,7 @@ class CarouselElement extends LitElement {
   }
 
   static get styles() {
-    return css `
+    return css`
     .slide-background {
       width:100%;
       height: 500px;
@@ -123,14 +122,14 @@ class CarouselElement extends LitElement {
   }
 
   render() {
-    return html `
+    return html`
       <div class="slideshow-container">
-        ${this.images? html`
-          ${this.images.map(image => html `
+        ${this.images ? html`
+          ${this.images.map(image => html`
             <div class="my-slides fade">
               <div class="slide-background" style="background-image: url(${image.url});"></div>
               <div class="text">
-                ${image.copyright_holder ? html`&copy; ${image.copyright_holder}`:''}
+                ${image.copyright_holder ? html`&copy; ${image.copyright_holder}` : ''}
               </div>
             </div>
           `)}
@@ -143,13 +142,12 @@ class CarouselElement extends LitElement {
           </div>
           <br>
           <div style="text-align:center">
-            ${this.images.map((image, i) => html `
+            ${this.images.map((image, i) => html`
               <!-- ${image} -->
-              <span class="dot" style="${this.images.length > 1 ? 'visibility:visible':'visibility:hidden'}" @click="${() =>  this.currentSlide(1+i)}"></span>
+              <span class="dot" style="${this.images.length > 1 ? 'visibility:visible' : 'visibility:hidden'}" @click="${() => this.currentSlide(1 + i)}"></span>
             `)}
           </div>
-        `
-        :``}
+        ` : ``}
       </div>
     `;
   }
@@ -171,23 +169,26 @@ class CarouselElement extends LitElement {
     let slides = this.shadowRoot.querySelectorAll('.my-slides');
     let dots = this.shadowRoot.querySelectorAll('.dot');
 
-    if ((slides && dots) && (slides.length && dots.length)) {
+    if (slides && dots && slides.length && dots.length) {
       if (n > slides.length) {
-        this.slideIndex = 1
+        this.slideIndex = 1;
       }
+
       if (n < 1) {
-        this.slideIndex = slides.length
+        this.slideIndex = slides.length;
       }
+
       for (i = 0; i < slides.length; i++) {
         slides[i].style.display = 'none';
       }
+
       for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(' active', '');
       }
+
       slides[this.slideIndex - 1].style.display = 'block';
       dots[this.slideIndex - 1].className += ' active';
     }
-
   }
 
 }

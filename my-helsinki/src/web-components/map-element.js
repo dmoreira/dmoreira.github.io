@@ -1,7 +1,6 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from "../../node_modules/lit-element/lit-element.js";
 
 class MapElement extends LitElement {
-
   static get properties() {
     return {
       lat: {
@@ -27,7 +26,7 @@ class MapElement extends LitElement {
 
   render() {
     console.log("coords " + this.lon + " " + this.lat);
-    return html `
+    return html`
       <iframe
         width=100%
         height=500
@@ -40,6 +39,6 @@ class MapElement extends LitElement {
     `;
   }
 
- }
+}
 
 customElements.define('map-element', MapElement);

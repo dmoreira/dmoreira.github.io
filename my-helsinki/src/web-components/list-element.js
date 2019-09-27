@@ -1,9 +1,7 @@
-import { LitElement, html, css } from 'lit-element';
-
+import { LitElement, html, css } from "../../node_modules/lit-element/lit-element.js";
 const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
 
 class ListElement extends LitElement {
-
   static get properties() {
     return {
       tag: {
@@ -34,7 +32,7 @@ class ListElement extends LitElement {
   }
 
   static get styles() {
-    return css `
+    return css`
       p {
           font-size: 20px;
       }
@@ -63,23 +61,21 @@ class ListElement extends LitElement {
   }
 
   render() {
-    return html `
+    return html`
       <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" integrity="sha256-piqEf7Ap7CMps8krDQsSOTZgF+MU/0MPyPW2enj5I40=" crossorigin="anonymous" />
       <div class="row mt-3">
         <div class="col-md-2 d-md-none d-lg-block"></div>
         <div class="col">
           <h3 class="fake-link">
-            <span @click=${() => this.showFilters = !this.showFilters}>Filters <i class="fas ${this.showFilters? 'fa-caret-up': 'fa-caret-down'} filter-icon"></i></span>
-            ${this.showFilters?
-              html`<span class="float-right filter-icon" onclick="filter('')">Reset <i class="fas fa-undo"></i></span>`
-            :''}
+            <span @click=${() => this.showFilters = !this.showFilters}>Filters <i class="fas ${this.showFilters ? 'fa-caret-up' : 'fa-caret-down'} filter-icon"></i></span>
+            ${this.showFilters ? html`<span class="float-right filter-icon" onclick="filter('')">Reset <i class="fas fa-undo"></i></span>` : ''}
           </h3>
         </div>
         <div class="col-md-2 d-md-none d-lg-block"></div>
       </div>
 
-      ${this.tags && this.showFilters? html`
+      ${this.tags && this.showFilters ? html`
         <div class="row mt-1">
           <div class="col-md-2 d-md-none d-lg-block"></div>
           <div class="col">
@@ -90,13 +86,12 @@ class ListElement extends LitElement {
           </div>
           <div class="col-md-2 d-md-none d-lg-block"></div>
         </div>
-      `
-      : ''}
+      ` : ''}
 
       <div class="row mt-3 pl-2">
         <div class="col-md-2 d-md-none d-lg-block"></div>
         <div class="col">
-        ${this.data? html`
+        ${this.data ? html`
           ${this.data.map(data => html`
             <div class="card mb-2">
               <div class="card-body fake-link">
@@ -106,8 +101,7 @@ class ListElement extends LitElement {
                       ${data.description.images !== null && data.description.images.length > 0 ? html`
                         <img class="event-img"
                         src="${data.description.images[0].url}" alt="${data.description.images[0].url}"/>
-                        `
-                      : html`
+                        ` : html`
                         <svg class="event-img" xmlns="http://www.w3.org/2000/svg"
                           preserveAspectRatio="xMidYMid slice" focusable="false" role="img" a
                           ria-label="Placeholder: Image cap">
@@ -119,7 +113,7 @@ class ListElement extends LitElement {
                     </div>
                     <div class="col">
                       <h3>${data.name.fi}</h3>
-                      ${data.description.intro? html`${data.description.intro.replace('Lue lisää...', '')}<br />`:''}
+                      ${data.description.intro ? html`${data.description.intro.replace('Lue lisää...', '')}<br />` : ''}
                       ${data.location.address.street_address}
                     </div>
                   </div>
@@ -133,11 +127,11 @@ class ListElement extends LitElement {
             </div>
 
           `)}
-          `: ''}
+          ` : ''}
         </div>
         <div class="col-md-2 d-md-none d-lg-block"></div>
       </div>
-      ${this.next? html`
+      ${this.next ? html`
         <div class="row mt-3">
           <div class="col text-center">
             <div class="fake-link" @click=${this.fetchNext}>
@@ -145,39 +139,35 @@ class ListElement extends LitElement {
             </div>
           </div>
         </div>
-      `
-      :''}
+      ` : ''}
 
     `;
   }
 
   async firstUpdated() {
-    this.url = `${CORS_PROXY}http://open-api.myhelsinki.fi/v1/${this.api}/?${this.tag?`tags_search=${this.tag}&`:''}limit=10&language_filter=fi`;
+    this.url = `${CORS_PROXY}http://open-api.myhelsinki.fi/v1/${this.api}/?${this.tag ? `tags_search=${this.tag}&` : ''}limit=10&language_filter=fi`;
     document.querySelector('.indicator').style.visibility = 'visible';
-    await fetch(this.url)
-      .then(r => r.json())
-      .then(async json => {
-        this.tags = [];
-        this.data = json.data;
-        this.next = json.meta.next;
-        document.querySelector('.indicator').style.visibility = 'hidden';
-        for (let prop in json.tags) {
-          if (json.tags.hasOwnProperty(prop)) {
-            this.tags.push(json.tags[prop]);
-          }
+    await fetch(this.url).then(r => r.json()).then(async json => {
+      this.tags = [];
+      this.data = json.data;
+      this.next = json.meta.next;
+      document.querySelector('.indicator').style.visibility = 'hidden';
+
+      for (let prop in json.tags) {
+        if (json.tags.hasOwnProperty(prop)) {
+          this.tags.push(json.tags[prop]);
         }
-      });
+      }
+    });
   }
 
   fetchNext() {
     this.shadowRoot.querySelector('.fa-spin').style.visibility = 'visible';
-    fetch(`${CORS_PROXY}${this.next}`)
-      .then(r => r.json())
-      .then(async json => {
-        json.data.map(data => this.data.push(data));
-        this.next = json.meta.next;
-        this.shadowRoot.querySelector('.fa-spin').style.visibility = 'hidden';
-      });
+    fetch(`${CORS_PROXY}${this.next}`).then(r => r.json()).then(async json => {
+      json.data.map(data => this.data.push(data));
+      this.next = json.meta.next;
+      this.shadowRoot.querySelector('.fa-spin').style.visibility = 'hidden';
+    });
   }
 
   filter() {
@@ -188,19 +178,18 @@ class ListElement extends LitElement {
     //distance_filter=60.26284810000001,25.0815777,1&
     this.url = `${CORS_PROXY}http://open-api.myhelsinki.fi/v1/${this.api}/?distance_filter=${position.coords.latitude},${position.coords.longitude},1&limit=10&language_filter=fi`;
     document.querySelector('.indicator').style.visibility = 'visible';
-    await fetch(this.url)
-      .then(r => r.json())
-      .then(async json => {
-        this.tags = [];
-        this.data = json.data;
-        this.next = json.meta.next;
-        document.querySelector('.indicator').style.visibility = 'hidden';
-        for (let prop in json.tags) {
-          if (json.tags.hasOwnProperty(prop)) {
-            this.tags.push(json.tags[prop]);
-          }
+    await fetch(this.url).then(r => r.json()).then(async json => {
+      this.tags = [];
+      this.data = json.data;
+      this.next = json.meta.next;
+      document.querySelector('.indicator').style.visibility = 'hidden';
+
+      for (let prop in json.tags) {
+        if (json.tags.hasOwnProperty(prop)) {
+          this.tags.push(json.tags[prop]);
         }
-      });
+      }
+    });
   }
 
 }

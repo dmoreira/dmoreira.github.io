@@ -1,10 +1,8 @@
-import { LitElement, html, css } from 'lit-element';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html';
-
+import { LitElement, html, css } from "../../node_modules/lit-element/lit-element.js";
+import { unsafeHTML } from "../../node_modules/lit-html/directives/unsafe-html.js";
 const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
 
 class SliderElement extends LitElement {
-
   static get properties() {
     return {
       slideIndex: {
@@ -29,7 +27,7 @@ class SliderElement extends LitElement {
   }
 
   static get styles() {
-    return css `
+    return css`
     .fake-link {cursor:pointer;}
     .truncate {
       max-width: 850px;
@@ -144,10 +142,10 @@ class SliderElement extends LitElement {
   }
 
   render() {
-    return html `
+    return html`
       <div class="slideshow-container">
-        ${this.data? html`
-          ${this.data.map(data => html `
+        ${this.data ? html`
+          ${this.data.map(data => html`
             <div class="my-slides fade">
               <div class="slide-background fake-link" @click=${() => this.navigateToItem(data.id)} style="background-image: url(${data.description.images[0].url});"></div>
               <div class="text p-3">
@@ -163,15 +161,14 @@ class SliderElement extends LitElement {
           <br>
 
           <div style="text-align:center">
-            ${this.data.map((data, i) => html `
+            ${this.data.map((data, i) => html`
               <!-- ${data} -->
-              <span class="dot" @click="${() =>  this.currentSlide(1+i)}"></span>
+              <span class="dot" @click="${() => this.currentSlide(1 + i)}"></span>
 
             `)}
           </div>
 
-        `
-        :``}
+        ` : ``}
       </div>
 
     `;
@@ -179,11 +176,9 @@ class SliderElement extends LitElement {
 
   async firstUpdated() {
     this.url = `${CORS_PROXY}http://open-api.myhelsinki.fi/v1/${this.api}/?tags_search=${this.tags}&limit=10&language_filter=en`;
-    await fetch(this.url)
-      .then(r => r.json())
-      .then(async json => {
-        this.data = json.data.filter(data => (data.description.images.length > 0));
-      });
+    await fetch(this.url).then(r => r.json()).then(async json => {
+      this.data = json.data.filter(data => data.description.images.length > 0);
+    });
   }
 
   updated() {
@@ -203,23 +198,26 @@ class SliderElement extends LitElement {
     let slides = this.shadowRoot.querySelectorAll('.my-slides');
     let dots = this.shadowRoot.querySelectorAll('.dot');
 
-    if ((slides && dots) && (slides.length && dots.length)) {
+    if (slides && dots && slides.length && dots.length) {
       if (n > slides.length) {
-        this.slideIndex = 1
+        this.slideIndex = 1;
       }
+
       if (n < 1) {
-        this.slideIndex = slides.length
+        this.slideIndex = slides.length;
       }
+
       for (i = 0; i < slides.length; i++) {
         slides[i].style.display = 'none';
       }
+
       for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(' active', '');
       }
+
       slides[this.slideIndex - 1].style.display = 'block';
       dots[this.slideIndex - 1].className += ' active';
     }
-
   }
 
   navigateToItem(id) {
