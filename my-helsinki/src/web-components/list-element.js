@@ -23,6 +23,10 @@ class ListElement extends LitElement {
       tags: {
         type: Array,
         reflect: true
+      },
+      showFilters: {
+        type: Boolean,
+        reflect: true
       }
     };
   }
@@ -44,32 +48,47 @@ class ListElement extends LitElement {
         text-decoration: none;
         color: #000;
       }
+      .filter-icon {
+        font-size: 16px;
+      }
     `;
   }
 
   constructor() {
     super();
     this.tags = [];
+    this.showFilters = true;
   }
 
   render() {
     return html`
       <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" integrity="sha256-piqEf7Ap7CMps8krDQsSOTZgF+MU/0MPyPW2enj5I40=" crossorigin="anonymous" />
-      ${this.tags ? html`
-        <div class="row mt-3">
+      <div class="row mt-3">
+        <div class="col-md-2 d-md-none d-lg-block"></div>
+        <div class="col">
+          <h3 class="fake-link">
+            <span @click=${() => this.showFilters = !this.showFilters}>Filters <i class="fas ${this.showFilters ? 'fa-caret-up' : 'fa-caret-down'} filter-icon"></i></span>
+            ${this.showFilters ? html`<span class="float-right filter-icon" onclick="filter('')">Reset <i class="fas fa-undo"></i></span>` : ''}
+          </h3>
+        </div>
+        <div class="col-md-2 d-md-none d-lg-block"></div>
+      </div>
+
+      ${this.tags && this.showFilters ? html`
+        <div class="row mt-1">
           <div class="col-md-2 d-md-none d-lg-block"></div>
           <div class="col">
             ${this.tags.map(tag => html`
-              <span class="badge p-2 mb-1 border border-dark fake-link" onclick="filter('${tag}')" onfocus="(this.blur)">${tag}</span>
+              <span class="badge p-2 mb-1 border border-dark fake-link" onclick="filter('${tag}')">${tag}</span>
             `)}
-            <span class="badge p-2 mb-1 border border-dark fake-link" onclick="filter('')">Reset</span>
+
           </div>
           <div class="col-md-2 d-md-none d-lg-block"></div>
         </div>
       ` : ''}
 
-      <div class="row mt-5 pl-2">
+      <div class="row mt-3 pl-2">
         <div class="col-md-2 d-md-none d-lg-block"></div>
         <div class="col">
         ${this.data ? html`
@@ -102,7 +121,7 @@ class ListElement extends LitElement {
               </div>
               <div class="card-footer text-right">
                 ${data.tags.map(tag => html`
-                  <span class="badge badge-light p-2 mb-1 border border-dark fake-link" onclick="filter('${tag.name}')">#${tag.name}</span>
+                  <span class="badge badge-light p-2 mb-1 border border-dark">#${tag.name}</span>
                 `)}
               </div>
             </div>
@@ -153,6 +172,24 @@ class ListElement extends LitElement {
 
   filter() {
     this.firstUpdated();
+  }
+
+  async fetchNearMe(position) {
+    //distance_filter=60.26284810000001,25.0815777,1&
+    this.url = `${CORS_PROXY}http://open-api.myhelsinki.fi/v1/${this.api}/?distance_filter=${position.coords.latitude},${position.coords.longitude},1&limit=10&language_filter=fi`;
+    document.querySelector('.indicator').style.visibility = 'visible';
+    await fetch(this.url).then(r => r.json()).then(async json => {
+      this.tags = [];
+      this.data = json.data;
+      this.next = json.meta.next;
+      document.querySelector('.indicator').style.visibility = 'hidden';
+
+      for (let prop in json.tags) {
+        if (json.tags.hasOwnProperty(prop)) {
+          this.tags.push(json.tags[prop]);
+        }
+      }
+    });
   }
 
 }

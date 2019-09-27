@@ -46,6 +46,7 @@ class CarouselElement extends LitElement {
       transition: 0.9s ease;
       border-radius: 0 3px 3px 0;
       user-select: none;
+      background-color: rgba(0,0,0,0.2);
     }
 
     .prev{
@@ -132,21 +133,20 @@ class CarouselElement extends LitElement {
               </div>
             </div>
           `)}
-
           <div class="controls">
+          ${this.images.length > 1 ? html`
             <a class="prev" @click="${() => this.plusSlides(-1)}">&#10094;</a>
             <a class="next" @click="${() => this.plusSlides(1)}">&#10095;</a>
+          ` : ''}
+
           </div>
           <br>
-
           <div style="text-align:center">
             ${this.images.map((image, i) => html`
               <!-- ${image} -->
-              <span class="dot" @click="${() => this.currentSlide(1 + i)}"></span>
-
+              <span class="dot" style="${this.images.length > 1 ? 'visibility:visible' : 'visibility:hidden'}" @click="${() => this.currentSlide(1 + i)}"></span>
             `)}
           </div>
-
         ` : ``}
       </div>
     `;
