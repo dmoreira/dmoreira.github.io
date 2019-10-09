@@ -18,13 +18,21 @@
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
   <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
   <script src="https://apis.google.com/js/api.js"></script>
+  <script src="nosleep.min.js"></script>
 
 </head>
 <body style="background-color: #e9ecef;">
 <app-root></app-root>
+<script>
+$(function() {
+  var noSleep = new NoSleep();
+  noSleep.enable();
+});
+</script>
 <script type="text/javascript" src="inline.bundle.js"></script><script type="text/javascript" src="polyfills.bundle.js"></script><script type="text/javascript" src="styles.bundle.js"></script><script type="text/javascript" src="scripts.bundle.js"></script><script type="text/javascript" src="vendor.bundle.js"></script><script type="text/javascript" src="main.bundle.js"></script></body>
 
 
