@@ -28,24 +28,3 @@ var rooms = [{
   id: TEKNO,
   name: 'TEKNO'
 }];
-
-var keepAwake = function() {
-  if ('WakeLock' in window) {
-    const controller = new AbortController();
-    const signal = controller.signal;
-    window.WakeLock.request('screen', {
-      signal
-    }).catch(e => {
-      $("#awake").html('not awakey :(');
-      if (e.name === 'AbortError') {
-        document.getElementById("awake").innerHTML = 'not awakey :(';
-      } else {
-        console.error(`${e.name}, ${e.message}`);
-      }
-    });
-    document.getElementById("awake").innerHTML = 'awakey!';
-    return controller;
-  } else {
-    document.getElementById("awake").innerHTML = 'not awakey :(';
-  }
-};
