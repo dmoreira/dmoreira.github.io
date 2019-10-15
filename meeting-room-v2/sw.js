@@ -8,10 +8,10 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(staticCacheName)
     .then(cache => cache.addAll([
-      '/index.html',
-      '/index.js',
-      '/scripts.js',
-      '/styles.css'
+      '/meeting-room-v2/index.html',
+      '/meeting-room-v2/index.js',
+      '/meeting-room-v2/scripts.js',
+      '/meeting-room-v2/styles.css'
     ]))
   );
 });
