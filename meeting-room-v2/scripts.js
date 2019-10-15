@@ -32,4 +32,5 @@ var rooms = [{
 $(function() {
   navigator.getWakeLock("screen").then(function(wakeLock) {
     var request = wakeLock.createRequest();    
+  });
 });
