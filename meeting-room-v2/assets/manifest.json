@@ -4,11 +4,9 @@
   "description": "Meeting Room application",
   "background_color": "#8e24aa",
   "theme_color": "#8e24aa",
-  "start_url": "/",
   "display": "standalone",
   "orientation": "landscape",
   "prefer_related_applications": false,
-
 
   "icons": [{
       "src": "images/icon-36.png",
@@ -54,6 +52,6 @@
     }
   ],
   "background_color": "#e9ecef",
-  "start_url": "/meeting-room-v2/index.html",
+  "start_url": "/meeting-room-v2/",
   "display": "fullscreen"
 }
