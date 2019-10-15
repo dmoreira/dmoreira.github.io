@@ -53,7 +53,7 @@ class EventsElement extends LitElement {
         ${this.events.map((event, index) => html`
           <div class="col p-1">
             <div class="card event-${index}">
-              <div class="card-body">
+              <div class="card-body pl-1 pr-1">
                 <h5 class="card-title event-summary">${event.summary}</h5>
                 <p class="card-text">
                   <span class="text-capitalize">${this.resolveEvent(event)}</span>
