@@ -1,4 +1,4 @@
-var toggleMenu = function () {
+var toggleMenu = function() {
   $('#toggle').toggle('slide');
   $('#overlay-main').toggle();
 };
@@ -28,29 +28,24 @@ var rooms = [{
   id: TEKNO,
   name: 'TEKNO'
 }];
-$(function () {
+
+var keepAwake = function() {
   if ('WakeLock' in window) {
-    const requestWakeLock = () => {
-      const controller = new AbortController();
-      const signal = controller.signal;
-      window.WakeLock.request('screen', {
-        signal
-      }).catch(e => {
-        if (e.name === 'AbortError') {
-          wakeLockCheckbox.checked = false;
-          console.log('Wake Lock was aborted');
-        } else {
-          console.error(`${e.name}, ${e.message}`);
-        }
-      });
-      wakeLockCheckbox.checked = true;
-      console.log('Wake Lock is active');
-      return controller;
-    };
+    const controller = new AbortController();
+    const signal = controller.signal;
+    window.WakeLock.request('screen', {
+      signal
+    }).catch(e => {
+      $("#awake").html('not awakey :(');
+      if (e.name === 'AbortError') {
+        console.log('Wake Lock was aborted');
+      } else {
+        console.error(`${e.name}, ${e.message}`);
+      }
+    });
     $("#awake").html('awakey!');
-    requestWakeLock();
+    return controller;
   } else {
-    console.log('not awakey');
     $("#awake").html('not awakey :(');
   }
-});
+};
