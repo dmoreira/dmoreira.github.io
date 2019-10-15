@@ -47,9 +47,10 @@ $(function () {
       console.log('Wake Lock is active');
       return controller;
     };
-
+    $("#awake").html('awakey!');
     requestWakeLock();
   } else {
     console.log('not awakey');
+    $("#awake").html('not awakey :(');
   }
 });
