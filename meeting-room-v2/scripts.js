@@ -38,14 +38,14 @@ var keepAwake = function() {
     }).catch(e => {
       $("#awake").html('not awakey :(');
       if (e.name === 'AbortError') {
-        console.log('Wake Lock was aborted');
+        document.getElementById("awake").innerHTML = 'not awakey :(';
       } else {
         console.error(`${e.name}, ${e.message}`);
       }
     });
-    $("#awake").html('awakey!');
+    document.getElementById("awake").innerHTML = 'awakey!';
     return controller;
   } else {
-    $("#awake").html('not awakey :(');
+    document.getElementById("awake").innerHTML = 'not awakey :(';
   }
 };
