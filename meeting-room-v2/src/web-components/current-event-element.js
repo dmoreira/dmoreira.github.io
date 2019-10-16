@@ -64,7 +64,7 @@ class CurrentEventElement extends LitElement {
             ${this.isFree ? html`<h1 class="display-1">Vapaa</h1>` : ``}
 
             ${!this.isFree && this.nowEvent ? html`
-              <h1 class="display-1">
+              <h1 class="display-4">
                 ${this.nowEvent.summary} ${this.dateFormat(this.nowEvent.start)} - ${this.dateFormat(this.nowEvent.end)}
               </h1>
             ` : ``}
