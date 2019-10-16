@@ -28,9 +28,3 @@ var rooms = [{
   id: TEKNO,
   name: 'TEKNO'
 }];
-
-$(function() {
-  navigator.getWakeLock("screen").then(function(wakeLock) {
-    var request = wakeLock.createRequest();    
-  });
-});
