@@ -187,11 +187,13 @@
         }
 
         var eventsElement = document.getElementById('events');
-        eventsElement.setAttribute("events", JSON.stringify(events));
         var currentEvent = document.getElementById('currentEvent');
-        currentEvent.setAttribute("room", JSON.stringify(room));
-        currentEvent.setAttribute("events", JSON.stringify(events));
         document.querySelector('current-event').checkIsFree(response.result.items);
+        setTimeout(() =>{
+          eventsElement.setAttribute("events", JSON.stringify(events));          
+          currentEvent.setAttribute("room", JSON.stringify(room));
+          currentEvent.setAttribute("events", JSON.stringify(events));
+        }, 1000);
       });
     }
   </script>
