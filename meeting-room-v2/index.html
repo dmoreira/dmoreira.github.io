@@ -190,9 +190,7 @@
         eventsElement.setAttribute("events", JSON.stringify(events));
         var currentEvent = document.getElementById('currentEvent');
         currentEvent.setAttribute("room", JSON.stringify(room));
-        setTimeout(() => {
-           currentEvent.setAttribute("events", JSON.stringify(events));
-        }, 1000);
+        currentEvent.setAttribute("events", JSON.stringify(events));
         document.querySelector('current-event').checkIsFree(response.result.items);
       });
     }
