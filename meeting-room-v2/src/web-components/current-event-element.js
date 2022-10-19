@@ -80,7 +80,7 @@ class CurrentEventElement extends LitElement {
           </div>
         </div>
 
-      ` : `
+      ` : html`
         <div class="row">
           <div class="col-md-8">
             <h1 class="room-name">${this.room.name}</h1>
