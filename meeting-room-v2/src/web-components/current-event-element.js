@@ -80,7 +80,31 @@ class CurrentEventElement extends LitElement {
           </div>
         </div>
 
-      ` : ``}
+      ` : `
+        <div class="row">
+          <div class="col-md-8">
+            <h1 class="room-name">${this.room.name}</h1>
+          </div>
+          <div class="col">
+            <qr-code class="float-right m-1" room=${this.room.name}></qr-code>
+          </div>
+        </div>
+
+        <div class="row ml-2 mt-3">
+          <div class="col">
+
+
+            ${this.isFree ? html`<h1 class="display-1">Vapaa</h1>` : ``}
+
+            ${!this.isFree && this.nowEvent ? html`
+              <h1 class="display-4">
+                ${this.nowEvent.summary} ${this.dateFormat(this.nowEvent.start)} - ${this.dateFormat(this.nowEvent.end)}
+              </h1>
+            ` : ``}
+
+          </div>
+        </div>
+`}
     `;
   }
 
