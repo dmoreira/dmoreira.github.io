@@ -25,7 +25,7 @@ class RoomsMenuElement extends LitElement {
 
   constructor() {
     super();
-    var BLUES = 'visma.com_1uj1dfbn5jtgu8bfcis9terc8s@group.calendar.google.com';
+    var BLUES = 'c_188dt9oapac04jg2hu3rrslvmmr56@resource.calendar.google.com';
     var SOUL = 'visma.com_sbg788eh8qlj1d5ipbvk0pghm8@group.calendar.google.com';
     var JAZZ = 'visma.com_f62kg5sc74kmcfcs6kt61939ro@group.calendar.google.com';
     var ROCK = 'visma.com_9bql35s40br3mdlngd8glo0sek@group.calendar.google.com';
